@@ -5,9 +5,9 @@ docker rm -f   centos1 centos2 centos3
 echo " supression des ficihers cles ssh existantes "
 rm ./id_rsa
 echo "Create new container : Debian" "green" "blue"
-docker run --name centos1 --hostname centos1 -d -v /etc/localtime:/etc/localtime:ro dromadev/centos-host
-docker run --name centos2 --hostname centos2 -d -v /etc/localtime:/etc/localtime:ro dromadev/centos-host
-docker run --name centos3 --hostname centos3 -d -v /etc/localtime:/etc/localtime:ro dromadev/centos-host
+docker run --name centos1 --hostname centos1 -d -v /etc/localtime:/etc/localtime:ro chaibim/centos-cobaye
+docker run --name centos2 --hostname centos2 -d -v /etc/localtime:/etc/localtime:ro chaibim/centos-cobaye
+docker run --name centos3 --hostname centos3 -d -v /etc/localtime:/etc/localtime:ro chaibim/centos-cobaye
 
 echo "Creation nouvelle cle RSA ssh " 
 ssh-keygen -t rsa -b 4096 -C "$(whoami)@$(hostname)-$(date)" -f ./id_rsa -q -N ""
